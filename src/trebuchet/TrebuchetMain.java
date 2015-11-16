@@ -9,13 +9,13 @@ package trebuchet;
  *
  * @author s355569
  */
-public class Trebuchet {
+public class TrebuchetMain {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
     
 }
