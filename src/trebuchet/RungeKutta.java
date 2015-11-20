@@ -34,7 +34,7 @@ public class RungeKutta {
         
         @Override
         public double apply(double t, double y) {
-            return ;
+            return 10;
         }
         
     };
