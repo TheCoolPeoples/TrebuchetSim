@@ -14,16 +14,23 @@ public class RungeKutta {
     
     
     Function stage1 = new Function() {
+    	
+    	/**
+    	 * physical specs of the trebuchet
+    	 * 
+    	 **/
+    	private double l1 ,l2,l3,l4, s, h; //lengths
+    	private double x1,x2,x3; // x coordinates of certains points
+        private double y1,y2,y3; // y coordinates of certain points
+        private double m1,m2,m3; // the masses
+        private double I; //Moment of inertia
+        private double angle1, angle2; //angles on trebuchet
         
-        private double X1=0, X2=0, X3=0, X4=0, X5=0, X6=0;
-        private double x1,x2,x3;
-        private double y1,y2,y3;
-        private double m1,m2,m3;
-        private double l1 ,l2,l3,l4, s, h;
-        private double I; 
-        private double g = 9.81;
-        private double angle1, angle2;
-        private double k1,k2,k3,k4,k5,k6,k7,k8,k9,k10;
+        private double X1=0, X2=0, X3=0, X4=0, X5=0, X6=0; //these are the change per time, pretty much derivative
+        
+        private double g = 9.81; //gravity
+        
+        private double k1,k2,k3,k4,k5,k6,k7,k8,k9,k10; //thingsn to calculate
         
         private double findK1() {
             return m2*l1*l1 + m1*((l2-s)*(l2-s)) + I;
