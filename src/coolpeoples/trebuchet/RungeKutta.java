@@ -19,12 +19,12 @@ public class RungeKutta {
     	 * physical specs of the trebuchet
     	 * 
     	 **/
-    	private double l1 ,l2,l3,l4, s, h; //lengths
-    	private double x1,x2,x3; // x coordinates of certains points
-        private double y1,y2,y3; // y coordinates of certain points
-        private double m1,m2,m3; // the masses
-        private double I; //Moment of inertia
-        private double angle1, angle2; //angles on trebuchet
+    	private double l1=15,l2=72,l3=48,l4=9, s=65, h=50; //lengths (in inches)
+    	private double x1=0,x2=5,x3=10; // x coordinates of certains points
+        private double y1=3,y2=6,y3=4; // y coordinates of certain points
+        private double m1=12,m2=3,m3=5; // the masses
+        private double I=4; //Moment of inertia
+        private double angle1=3, angle2=4; //angles on trebuchet
         
         private double X1=0, X2=0, X3=0, X4=0, X5=0, X6=0; //these are the change per time, pretty much derivative
         

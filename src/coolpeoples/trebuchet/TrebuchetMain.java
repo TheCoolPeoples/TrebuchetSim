@@ -15,7 +15,9 @@ public class TrebuchetMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        RungeKutta rg = new RungeKutta();
         
+        System.out.println(rg.stage1.apply(0, 0));
     }
     
 }
