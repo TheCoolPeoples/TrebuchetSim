@@ -79,7 +79,7 @@ public class RungeKutta {
         
         @Override
         public double apply(double t, double y) {
-            return 10;
+            return m3*g+((m3*(h-l2*Math.sin(angle1))/(x3+l2*Math.cos(angle1))))*find2Devx3();
         }
         
     };
