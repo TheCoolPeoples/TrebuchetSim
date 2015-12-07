@@ -14,34 +14,37 @@ public class RungeKutta {
     Function testFunction = new Function() {
         
         private double h = 0.5;
+        private double w0 = 0.5;
         
-        private double findK1(double ti, double wi) {
+        public double findK1(double ti, double wi) {
             return h*(wi-(ti*ti)+1);
         }
         
-        private double findK2(double ti, double wi) {
+        public double findK2(double ti, double wi) {
             double ti2 = ti+(h/2);
             double wi2 = wi + (findK1(ti, wi)/2);
             return h*(wi2-(ti2*ti2)+1);
         }
         
-        private double findK3(double ti, double wi) {
+        public double findK3(double ti, double wi) {
             double ti2 = ti+(h/2);
             double wi2 = wi + (findK2(ti, wi)/2);
             return h*(wi2-(ti2*ti2)+1);
         }
         
-        private double findK4(double ti, double wi) {
+        public double findK4(double ti, double wi) {
             double ti2 = ti+h;
             double wi2 = wi + findK3(ti, wi);
             return h*(wi2-(ti2*ti2)+1);
         }
         
-        
-        
-        @Override
-        public double apply(double t, double y) {
-            return 10.0;
+        public double findW1Plus1(double wi, double k1, double k2, double k3, double k4) {
+            double k22 = 2*k2;
+            double k32 = 2*k3;
+            return wi+(1/6)*(k1+k22+k32+k4);
+        }
+        public double apply() {
+            return 10.10;
         }
     };
     

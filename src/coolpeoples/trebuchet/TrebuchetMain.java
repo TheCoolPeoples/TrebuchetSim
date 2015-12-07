@@ -16,8 +16,10 @@ public class TrebuchetMain {
      */
     public static void main(String[] args) {
         RungeKutta rg = new RungeKutta();
+
         
-        System.out.println(rg.stage1.apply(0, 0));
+        
+        System.out.println(rg.testFunction.apply(0.5));
     }
     
 }
