@@ -11,7 +11,39 @@ package coolpeoples.trebuchet;
  */
 public class RungeKutta {
     
-    
+    Function testFunction = new Function() {
+        
+        private double h = 0.5;
+        
+        private double findK1(double ti, double wi) {
+            return h*(wi-(ti*ti)+1);
+        }
+        
+        private double findK2(double ti, double wi) {
+            double ti2 = ti+(h/2);
+            double wi2 = wi + (findK1(ti, wi)/2);
+            return h*(wi2-(ti2*ti2)+1);
+        }
+        
+        private double findK3(double ti, double wi) {
+            double ti2 = ti+(h/2);
+            double wi2 = wi + (findK2(ti, wi)/2);
+            return h*(wi2-(ti2*ti2)+1);
+        }
+        
+        private double findK4(double ti, double wi) {
+            double ti2 = ti+h;
+            double wi2 = wi + findK3(ti, wi);
+            return h*(wi2-(ti2*ti2)+1);
+        }
+        
+        
+        
+        @Override
+        public double apply(double t, double y) {
+            return 10.0;
+        }
+    };
     
     Function stage1 = new Function() {
     	
