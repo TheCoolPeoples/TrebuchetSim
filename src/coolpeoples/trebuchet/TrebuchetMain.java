@@ -19,7 +19,7 @@ public class TrebuchetMain {
 
         
         
-        System.out.println(rg.testFunction.apply(0.5));
+        System.out.println(rg.testFunction.apply(0.5, 0.5));
     }
     
 }

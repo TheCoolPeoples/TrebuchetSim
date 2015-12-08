@@ -43,7 +43,7 @@ public class RungeKutta {
             double k32 = 2*k3;
             return wi+(1/6)*(k1+k22+k32+k4);
         }
-        public double apply() {
+        public double apply(double x, double y) {
             return 10.10;
         }
     };
