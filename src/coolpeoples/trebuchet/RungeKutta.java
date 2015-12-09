@@ -11,42 +11,7 @@ package coolpeoples.trebuchet;
  */
 public class RungeKutta {
     
-    Function testFunction = new Function() {
-        
-        private double h = 0.5;
-        private double w0 = 0.5;
-        
-        public double findK1(double ti, double wi) {
-            return h*(wi-(ti*ti)+1);
-        }
-        
-        public double findK2(double ti, double wi) {
-            double ti2 = ti+(h/2);
-            double wi2 = wi + (findK1(ti, wi)/2);
-            return h*(wi2-(ti2*ti2)+1);
-        }
-        
-        public double findK3(double ti, double wi) {
-            double ti2 = ti+(h/2);
-            double wi2 = wi + (findK2(ti, wi)/2);
-            return h*(wi2-(ti2*ti2)+1);
-        }
-        
-        public double findK4(double ti, double wi) {
-            double ti2 = ti+h;
-            double wi2 = wi + findK3(ti, wi);
-            return h*(wi2-(ti2*ti2)+1);
-        }
-        
-        public double findW1Plus1(double wi, double k1, double k2, double k3, double k4) {
-            double k22 = 2*k2;
-            double k32 = 2*k3;
-            return wi+(1/6)*(k1+k22+k32+k4);
-        }
-        public double apply(double x, double y) {
-            return 10.10;
-        }
-    };
+    Function testFunction = (double x, double y) -> y - x * x +1;
     
     Function stage1 = new Function() {
     	
@@ -125,5 +90,14 @@ public class RungeKutta {
         }
         
     };
+    
+    public double rk4(Function f, double x, double y, double h) {
+        double k1 = h*f.apply(x, y);
+        double k2 = h*f.apply(x+(h/2), y+(k1/2));
+        double k3 = h*f.apply(x+(h/2), y+(k2/2));
+        double k4 = h*f.apply(x+h, y+k3);
+        return y+(k1+2*k2+2*k3+k4)/6;
+        
+    }
     
 }
