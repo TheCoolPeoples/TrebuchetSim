@@ -17,15 +17,15 @@ public class TrebuchetMain {
     public static void main(String[] args) {
         RungeKutta rg = new RungeKutta();
 
-        //System.out.println(rg.rk4(rg.testFunction, 0.0, 0.5, 0.5));
-        double stepper = 0.2;
-        double ti = 0;
-        double w = 0.5;
-        while (ti <= 2 ) {
-            w = rg.rk4(rg.testFunction, ti, w, stepper);
-            System.out.println(ti + "" + w);
-            ti += stepper;
-        }
+        System.out.println(rg.rk4(rg.simplePendulumFunction, 0.0, 0.5, 0.5));
+//        double stepper = 0.2;
+//        double ti = 0;
+//        double w = 0.5;
+//        while (ti <= 2 ) {
+//            w = rg.rk4(rg.testFunction, ti, w, stepper);
+//            System.out.println(ti + "" + w);
+//            ti += stepper;
+//        }
     }
     
 }

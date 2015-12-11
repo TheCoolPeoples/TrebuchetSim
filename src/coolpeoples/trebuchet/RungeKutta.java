@@ -12,9 +12,21 @@ package coolpeoples.trebuchet;
 public class RungeKutta {
     
     Function testFunction = (double x, double y) -> y - x * x +1;
+    Function simplePendulumFunction = (double x, double y) -> (-9.8/2)*Math.sin(y);
+    
+
+    
+    public double rk4(Function f, double x, double y, double h) {
+        double k1 = h*f.apply(x, y);
+        double k2 = h*f.apply(x+(h/2), y+(k1/2));
+        double k3 = h*f.apply(x+(h/2), y+(k2/2));
+        double k4 = h*f.apply(x+h, y+k3);
+        return y+(k1+2*k2+2*k3+k4)/6;
+        
+    }
     
     Function stage1 = new Function() {
-    	
+    
     	/**
     	 * physical specs of the trebuchet
     	 * 
@@ -90,14 +102,5 @@ public class RungeKutta {
         }
         
     };
-    
-    public double rk4(Function f, double x, double y, double h) {
-        double k1 = h*f.apply(x, y);
-        double k2 = h*f.apply(x+(h/2), y+(k1/2));
-        double k3 = h*f.apply(x+(h/2), y+(k2/2));
-        double k4 = h*f.apply(x+h, y+k3);
-        return y+(k1+2*k2+2*k3+k4)/6;
-        
-    }
     
 }
